@@ -3,9 +3,11 @@ import cors from "cors";
 import records from "./routes/record.js";
 
 const PORT = process.env.PORT || 5050;
-const app = express();
+let corsOpts = {
+  origin: "http://52.66.241.164:5173",
+}
 
-app.use(cors());
+app.use(cors(corsOpts));
 app.use(express.json());
 app.use("/record", records);
 
